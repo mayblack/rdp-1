@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
+  margin-bottom: 8px;
 `;
 
 const Pane = styled.div`
