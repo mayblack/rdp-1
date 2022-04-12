@@ -8,6 +8,7 @@ import {SmallProductListItem} from './products/SmallProductListItem';
 import {NumberedList} from './NumberedList';
 import {ProductInfo} from './products/ProductInfo';
 import {Modal} from './Modal';
+import {CurrentUserLoader} from './CurrentUserLoader';
 
 const people = [{
     name: 'John Doe',
@@ -50,6 +51,9 @@ function App() {
             <LeftHandComponent name="Marcin"/>
             <RightHandComponent message="Welcome"/>
           </SplitScreen>
+          <CurrentUserLoader>
+              <UserInfo/>
+          </CurrentUserLoader>
           <Modal>
               <ProductInfo product={products[0]}/>
           </Modal>
