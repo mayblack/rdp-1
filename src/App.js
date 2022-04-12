@@ -3,10 +3,10 @@ import { LeftHandComponent } from './LeftHandComponent';
 import { RightHandComponent } from './RightHandComponent';
 import {RegularList} from './RegularList';
 import {SmallPersonListItem} from './people/SmallPersonListItem';
-import {LargePersonListItem} from './people/LargePersonListItem';
+import {UserInfo} from './people/UserInfo';
 import {SmallProductListItem} from './products/SmallProductListItem';
 import {NumberedList} from './NumberedList';
-import {LargeProductListItem} from './products/LargeProductListItem';
+import {ProductInfo} from './products/ProductInfo';
 import {Modal} from './Modal';
 
 const people = [{
@@ -51,16 +51,16 @@ function App() {
             <RightHandComponent message="Welcome"/>
           </SplitScreen>
           <Modal>
-              <LargeProductListItem product={products[0]}/>
+              <ProductInfo product={products[0]}/>
           </Modal>
           <hr/>
           <RegularList items={people} resourceName="person" itemComponent={SmallPersonListItem}/>
           <hr/>
-          <NumberedList items={people} resourceName="person" itemComponent={LargePersonListItem}/>
+          <NumberedList items={people} resourceName="user" itemComponent={UserInfo}/>
           <hr/>
           <RegularList items={products} resourceName="product" itemComponent={SmallProductListItem}/>
           <hr/>
-          <NumberedList items={products} resourceName="product" itemComponent={LargeProductListItem}/>
+          <NumberedList items={products} resourceName="product" itemComponent={ProductInfo}/>
       </div>
   );
 }
