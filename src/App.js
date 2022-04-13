@@ -12,6 +12,7 @@ import {UserLoader} from './UserLoader';
 import {ResourceLoader} from './ResourceLoader';
 import {DataSource} from './DataSource';
 import axios from 'axios';
+import {UncontrolledForm} from './UncontrolledForm';
 
 const people = [{
     name: 'John Doe',
@@ -76,7 +77,7 @@ function App() {
           <DataSource getDataFunc={getLocalStorageData('message')} resourceName="message">
               <Text/>
           </DataSource>
-          <hr/>
+          <UncontrolledForm/>
           <ResourceLoader resourceUrl="/users/345" resourceName="user">
               <UserInfo/>
           </ResourceLoader>
