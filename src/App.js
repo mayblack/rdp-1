@@ -49,6 +49,11 @@ const products = [{
 
 const userIds = ['123', '234', '345'];
 
+const getServerData = url => async () => {
+    const response = await axios.get(url);
+    return response.data;
+};
+
 function App() {
   return (
       <div>
@@ -59,10 +64,7 @@ function App() {
           <Modal>
               <ProductInfo product={products[0]}/>
           </Modal>
-          <DataSource getDataFunc={async () => {
-              const response = await axios.get('/users/123');
-              return response.data;
-          }} resourceName="user">
+          <DataSource getDataFunc={getServerData('/users/234')} resourceName="user">
               <UserInfo/>
           </DataSource>
           <hr/>
