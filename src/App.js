@@ -8,7 +8,7 @@ import {SmallProductListItem} from './products/SmallProductListItem';
 import {NumberedList} from './NumberedList';
 import {ProductInfo} from './products/ProductInfo';
 import {Modal} from './Modal';
-import {CurrentUserLoader} from './CurrentUserLoader';
+import {UserLoader} from './UserLoader';
 
 const people = [{
     name: 'John Doe',
@@ -44,6 +44,8 @@ const products = [{
     rating: 4.2,
 }];
 
+const userIds = ['123', '234', '345'];
+
 function App() {
   return (
       <div>
@@ -51,16 +53,16 @@ function App() {
             <LeftHandComponent name="Marcin"/>
             <RightHandComponent message="Welcome"/>
           </SplitScreen>
-          <CurrentUserLoader>
-              <UserInfo/>
-          </CurrentUserLoader>
           <Modal>
               <ProductInfo product={products[0]}/>
           </Modal>
+          {userIds.map(id => (
+              <UserLoader userId={id}>
+                  <UserInfo/>
+              </UserLoader>
+          ))}
           <hr/>
           <RegularList items={people} resourceName="person" itemComponent={SmallPersonListItem}/>
-          <hr/>
-          <NumberedList items={people} resourceName="user" itemComponent={UserInfo}/>
           <hr/>
           <RegularList items={products} resourceName="product" itemComponent={SmallProductListItem}/>
           <hr/>
