@@ -9,6 +9,7 @@ import {NumberedList} from './NumberedList';
 import {ProductInfo} from './products/ProductInfo';
 import {Modal} from './Modal';
 import {UserLoader} from './UserLoader';
+import {ResourceLoader} from './ResourceLoader';
 
 const people = [{
     name: 'John Doe',
@@ -56,8 +57,16 @@ function App() {
           <Modal>
               <ProductInfo product={products[0]}/>
           </Modal>
+          <ResourceLoader resourceUrl="/users/345" resourceName="user">
+              <UserInfo/>
+          </ResourceLoader>
+          <hr/>
+          <ResourceLoader resourceUrl="/products/1234" resourceName="product">
+              <ProductInfo/>
+          </ResourceLoader>
+          <hr/>
           {userIds.map(id => (
-              <UserLoader userId={id}>
+              <UserLoader userId={id} key={id}>
                   <UserInfo/>
               </UserLoader>
           ))}
