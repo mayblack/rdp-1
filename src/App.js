@@ -1,6 +1,6 @@
-import { SplitScreen } from './SplitScreen';
-import { LeftHandComponent } from './LeftHandComponent';
-import { RightHandComponent } from './RightHandComponent';
+import {SplitScreen} from './SplitScreen';
+import {LeftHandComponent} from './LeftHandComponent';
+import {RightHandComponent} from './RightHandComponent';
 import {RegularList} from './RegularList';
 import {SmallPersonListItem} from './people/SmallPersonListItem';
 import {UserInfo} from './people/UserInfo';
@@ -10,6 +10,8 @@ import {ProductInfo} from './products/ProductInfo';
 import {Modal} from './Modal';
 import {UserLoader} from './UserLoader';
 import {ResourceLoader} from './ResourceLoader';
+import {DataSource} from './DataSource';
+import axios from 'axios';
 
 const people = [{
     name: 'John Doe',
@@ -57,6 +59,13 @@ function App() {
           <Modal>
               <ProductInfo product={products[0]}/>
           </Modal>
+          <DataSource getDataFunc={async () => {
+              const response = await axios.get('/users/123');
+              return response.data;
+          }} resourceName="user">
+              <UserInfo/>
+          </DataSource>
+          <hr/>
           <ResourceLoader resourceUrl="/users/345" resourceName="user">
               <UserInfo/>
           </ResourceLoader>
