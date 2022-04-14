@@ -24,12 +24,12 @@ export const UncontrolledModal = ({ children }) => {
     
     return (
         <>
-            <button onClick={() => setShouldShow(true)}>Show modal</button>
+            <button onClick={() => setShouldShow(true)}>Show the Uncontrolled modal</button>
             {shouldShow && (
                 <ModalBackground onClick={() => setShouldShow(false)}>
                     <ModalBody onClick={event => event.stopPropagation()}>
                         <button onClick={() => setShouldShow(false)}>
-                            [x] close modal
+                            [x] close the uncontrolled modal
                         </button>
                         {children}
                     </ModalBody>
