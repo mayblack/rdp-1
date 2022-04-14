@@ -7,7 +7,7 @@ import {UserInfo} from './people/UserInfo';
 import {SmallProductListItem} from './products/SmallProductListItem';
 import {NumberedList} from './NumberedList';
 import {ProductInfo} from './products/ProductInfo';
-import {Modal} from './Modal';
+import {UncontrolledModal} from './UncontrolledModal';
 import {UserLoader} from './UserLoader';
 import {ResourceLoader} from './ResourceLoader';
 import {DataSource} from './DataSource';
@@ -69,9 +69,9 @@ function App() {
             <LeftHandComponent name="Marcin"/>
             <RightHandComponent message="Welcome"/>
           </SplitScreen>
-          <Modal>
+          <UncontrolledModal>
               <ProductInfo product={products[0]}/>
-          </Modal>
+          </UncontrolledModal>
           <DataSource getDataFunc={getServerData('/users/234')} resourceName="user">
               <UserInfo/>
           </DataSource>
