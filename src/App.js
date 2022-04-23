@@ -19,7 +19,8 @@ import {ControlledModal} from './ControlledModal';
 import {UncontrolledOnboardingFlow} from './UncontrolledOnboardingFlow';
 import {StepOne} from './steps/StepOne';
 import {StepTwo} from './steps/StepTwo';
-import {StepThree} from './steps/StepThree';
+import {StepFour} from './steps/StepFour';
+import {ControlledOnboardingFlow} from './ControlledOnboardingFlow';
 
 const people = [{
     name: 'John Doe',
@@ -68,8 +69,23 @@ const getLocalStorageData = key => () => {
 
 const Text = ({message}) => <h1>{message}</h1>;
 
+const StepThree = ({ goToNext }) => (
+    <>
+        <h1>Step 3</h1>
+        <p>Congratulations! You qualify for our senior discount</p>
+        <button onClick={() => goToNext({})}>Next</button>
+    </>
+);
+
 function App() {
     const [shouldShowModal, setShouldShowModal] = useState(false);
+    const [onboardingData, setOnboardingData] = useState({});
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const onNext = stepData => {
+        setOnboardingData({...onboardingData, ...stepData});
+        setCurrentIndex(currentIndex + 1);
+    }
 
     return (
         <div>
@@ -89,13 +105,21 @@ function App() {
                 {shouldShowModal ? 'Hide modal' : 'Show modal'}
             </button>
 
+            <ControlledOnboardingFlow onNext={onNext} currentIndex={currentIndex}>
+                <StepOne/>
+                <StepTwo/>
+                {onboardingData.age >= 62 && <StepThree/>}
+                <StepFour/>
+            </ControlledOnboardingFlow>
+            <hr/>
+
             <UncontrolledOnboardingFlow onFinish={data => {
                 console.log(data);
                 alert('Onboarding complete!');
             }}>
                 <StepOne/>
                 <StepTwo/>
-                <StepThree/>
+                <StepFour/>
             </UncontrolledOnboardingFlow>
             <hr/>
 

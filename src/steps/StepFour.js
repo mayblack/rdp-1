@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-export const StepThree = ({ goToNext }) => {
+export const StepFour = ({ goToNext }) => {
     const [hairColor, setHairColor] = useState('');
 
     return (
@@ -8,7 +8,7 @@ export const StepThree = ({ goToNext }) => {
             event.preventDefault();
             goToNext({ hairColor });
         }}>
-            <h1>Step 3</h1>
+            <h1>Step 4</h1>
             <input type="text" placeholder="Hair color" value={hairColor} onChange={event => {
                 setHairColor(event.target.value);
             }}/>
