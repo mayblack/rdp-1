@@ -17,6 +17,7 @@ import {UncontrolledForm} from './UncontrolledForm';
 import {ControlledForm} from './ControlledForm';
 import {ControlledModal} from './ControlledModal';
 import {UncontrolledOnboardingFlow} from './UncontrolledOnboardingFlow';
+import {StepOne} from './steps/StepOne';
 
 const people = [{
     name: 'John Doe',
@@ -64,13 +65,6 @@ const getLocalStorageData = key => () => {
 }
 
 const Text = ({message}) => <h1>{message}</h1>;
-
-const StepOne = ({ goToNext }) => (
-    <>
-        <h1>Step 1</h1>
-        <button onClick={() => goToNext({ name: 'John Doe' })}>Next</button>
-    </>
-);
 
 const StepTwo = ({ goToNext }) => (
     <>
