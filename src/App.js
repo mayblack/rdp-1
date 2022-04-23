@@ -18,6 +18,8 @@ import {ControlledForm} from './ControlledForm';
 import {ControlledModal} from './ControlledModal';
 import {UncontrolledOnboardingFlow} from './UncontrolledOnboardingFlow';
 import {StepOne} from './steps/StepOne';
+import {StepTwo} from './steps/StepTwo';
+import {StepThree} from './steps/StepThree';
 
 const people = [{
     name: 'John Doe',
@@ -65,20 +67,6 @@ const getLocalStorageData = key => () => {
 }
 
 const Text = ({message}) => <h1>{message}</h1>;
-
-const StepTwo = ({ goToNext }) => (
-    <>
-        <h1>Step 2</h1>
-        <button onClick={() => goToNext({ age: 100 })}>Next</button>
-    </>
-);
-
-const StepThree = ({ goToNext }) => (
-    <>
-        <h1>Step 3</h1>
-        <button onClick={() => goToNext({ hairColor: 'brown' })}>Next</button>
-    </>
-);
 
 function App() {
     const [shouldShowModal, setShouldShowModal] = useState(false);
