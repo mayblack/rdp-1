@@ -16,6 +16,7 @@ import axios from 'axios';
 import {UncontrolledForm} from './UncontrolledForm';
 import {ControlledForm} from './ControlledForm';
 import {ControlledModal} from './ControlledModal';
+import {UncontrolledOnboardingFlow} from './UncontrolledOnboardingFlow';
 
 const people = [{
     name: 'John Doe',
@@ -64,6 +65,10 @@ const getLocalStorageData = key => () => {
 
 const Text = ({message}) => <h1>{message}</h1>;
 
+const StepOne = () => <h1>Step 1</h1>;
+const StepTwo = () => <h1>Step 2</h1>;
+const StepThree = () => <h1>Step 3</h1>;
+
 function App() {
     const [shouldShowModal, setShouldShowModal] = useState(false);
 
@@ -84,6 +89,13 @@ function App() {
             <button onClick={() => setShouldShowModal(!shouldShowModal)} style={{marginLeft: '1em'}}>
                 {shouldShowModal ? 'Hide modal' : 'Show modal'}
             </button>
+
+            <UncontrolledOnboardingFlow>
+                <StepOne/>
+                <StepTwo/>
+                <StepThree/>
+            </UncontrolledOnboardingFlow>
+            <hr/>
 
             <DataSource getDataFunc={getServerData('/users/234')} resourceName="user">
                 <UserInfo/>
